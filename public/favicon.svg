@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#140D2B"/>
+      <stop offset="100%" stop-color="#0D0818"/>
+    </linearGradient>
+    <linearGradient id="gv" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#5D36FF"/>
+    </linearGradient>
+    <linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5D36FF"/>
+      <stop offset="100%" stop-color="#1B90FF"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glow-sm">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <clipPath id="round">
+      <rect width="512" height="512" rx="112" ry="112"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="112" ry="112" fill="url(#bg)"/>
+
+  <!-- Subtle radial glow top-right -->
+  <radialGradient id="rg" cx="75%" cy="20%" r="50%">
+    <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="512" height="512" rx="112" ry="112" fill="url(#rg)"/>
+
+  <!-- Connection lines (edges of the agent graph) -->
+  <!-- Center → top-left node -->
+  <line x1="256" y1="256" x2="148" y2="155" stroke="url(#gv)" stroke-width="2.5" stroke-opacity="0.45"/>
+  <!-- Center → top-right node -->
+  <line x1="256" y1="256" x2="364" y2="155" stroke="url(#gb)" stroke-width="2.5" stroke-opacity="0.45"/>
+  <!-- Center → bottom-left node -->
+  <line x1="256" y1="256" x2="148" y2="357" stroke="url(#gv)" stroke-width="2.5" stroke-opacity="0.45"/>
+  <!-- Center → bottom-right node -->
+  <line x1="256" y1="256" x2="364" y2="357" stroke="url(#gb)" stroke-width="2.5" stroke-opacity="0.45"/>
+  <!-- Top-left → top-right (peer) -->
+  <line x1="148" y1="155" x2="364" y2="155" stroke="#5D36FF" stroke-width="1.5" stroke-opacity="0.25"/>
+  <!-- Bottom-left → bottom-right (peer) -->
+  <line x1="148" y1="357" x2="364" y2="357" stroke="#5D36FF" stroke-width="1.5" stroke-opacity="0.25"/>
+
+  <!-- Satellite nodes (subagents) -->
+  <!-- Top-left -->
+  <circle cx="148" cy="155" r="26" fill="#0D0818" stroke="url(#gv)" stroke-width="2.5" filter="url(#glow-sm)"/>
+  <circle cx="148" cy="155" r="10" fill="url(#gv)" opacity="0.9"/>
+
+  <!-- Top-right -->
+  <circle cx="364" cy="155" r="26" fill="#0D0818" stroke="url(#gb)" stroke-width="2.5" filter="url(#glow-sm)"/>
+  <circle cx="364" cy="155" r="10" fill="url(#gb)" opacity="0.9"/>
+
+  <!-- Bottom-left -->
+  <circle cx="148" cy="357" r="22" fill="#0D0818" stroke="url(#gv)" stroke-width="2" stroke-opacity="0.7"/>
+  <circle cx="148" cy="357" r="8" fill="#5D36FF" opacity="0.7"/>
+
+  <!-- Bottom-right -->
+  <circle cx="364" cy="357" r="22" fill="#0D0818" stroke="url(#gb)" stroke-width="2" stroke-opacity="0.7"/>
+  <circle cx="364" cy="357" r="8" fill="#1B90FF" opacity="0.7"/>
+
+  <!-- Central hub node — largest, brightest -->
+  <circle cx="256" cy="256" r="52" fill="#0D0818" stroke="url(#gv)" stroke-width="3" filter="url(#glow)"/>
+  <!-- Inner ring -->
+  <circle cx="256" cy="256" r="36" fill="none" stroke="url(#gv)" stroke-width="1.5" stroke-opacity="0.35"/>
+  <!-- Core fill -->
+  <circle cx="256" cy="256" r="22" fill="url(#gv)" opacity="0.95"/>
+
+  <!-- Activity pulse ring (animated feel via static concentric) -->
+  <circle cx="256" cy="256" r="64" fill="none" stroke="url(#gv)" stroke-width="1" stroke-opacity="0.12"/>
+  <circle cx="256" cy="256" r="78" fill="none" stroke="url(#gv)" stroke-width="0.75" stroke-opacity="0.06"/>
+</svg>

@@ -1,0 +1,64 @@
+:root {
+  /* Dark palette */
+  --am-purple:  #7C3AED;
+  --am-violet:  #5D36FF;
+  --am-dark:    #0D0818;
+  --am-deep:    #140D2B;
+  --am-mid:     #1E1540;
+  --border-faint:  rgba(93,54,255,0.12);
+  --border-glow:   rgba(93,54,255,0.30);
+  --surface:       rgba(20,13,43,0.60);
+  --surface-hover: rgba(30,21,64,0.85);
+
+  /* Semantic */
+  --blue:   #1B90FF;
+  --indigo: #7858FF;
+  --teal:   #049F9A;
+  --mango:  #E76500;
+  --green:  #36A41D;
+  --red:    #EE3939;
+  --grey:   #5B6F8B;
+
+  /* Text */
+  --text-primary: #F0EDF8;
+  --text-muted:   #9B92B8;
+  --text-dim:     #5C5580;
+  --white: #fff;
+
+  /* Card */
+  --card-bg:       rgba(255,255,255,0.055);
+  --card-bg-hover: rgba(255,255,255,0.085);
+  --card-border:   rgba(255,255,255,0.09);
+  --card-border-h: rgba(255,255,255,0.18);
+  --modal-bg:      #1A1035;
+
+  /* Layout */
+  --shell-h: 52px;
+  --nav-w:   56px;
+  --panel-w: 240px;
+  --shell-bg: rgba(13,8,24,0.9);
+  --panel-bg: rgba(13,8,24,0.7);
+}
+
+[data-theme="light"] {
+  --am-dark:    #F5F3FF;
+  --am-deep:    #EDE9FE;
+  --am-mid:     #DDD6FE;
+  --border-faint:  rgba(93,54,255,0.15);
+  --border-glow:   rgba(93,54,255,0.25);
+  --surface:       rgba(237,233,254,0.80);
+  --surface-hover: rgba(221,214,254,0.95);
+
+  --text-primary: #1E1540;
+  --text-muted:   #4C3D8A;
+  --text-dim:     #7C6FAE;
+  --white: #1E1540;
+
+  --card-bg:       rgba(0,0,0,0.04);
+  --card-bg-hover: rgba(0,0,0,0.07);
+  --card-border:   rgba(0,0,0,0.10);
+  --card-border-h: rgba(0,0,0,0.18);
+  --modal-bg:      #F0EEFF;
+  --shell-bg: rgba(237,233,254,0.92);
+  --panel-bg: rgba(237,233,254,0.70);
+}

@@ -1,0 +1,19 @@
+node_modules
+dist
+dist-app
+
+# Secrets / environment
+.env
+.env.*
+
+# Local dev artifacts
+/tmp/agent-monitor.log
+screenshots
+
+# Local agent scratch and planning docs (never published)
+.superpowers/
+docs/
+
+# AI agent config (local only)
+CLAUDE.md
+.claude
