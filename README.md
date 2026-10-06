@@ -123,7 +123,7 @@ Completed sessions (in the **Done** column) and past sessions (in the **History*
 
 ## Requirements
 
-- Node.js 18+
+- Node.js 18+ (only to build or run from source — **not** needed for the prebuilt Windows installer)
 - Claude Code running at least one session (writes `~/.claude/sessions/`)
 - For the Graph tab: [Ollama](https://ollama.com) with a pulled model (`ollama pull gemma4:12b`; ~8 GB, 16 GB RAM recommended)
 
@@ -140,15 +140,29 @@ Open [http://localhost:5173](http://localhost:5173).
 
 ## Windows desktop app
 
-Build an installer and run Agent Monitor in its own window (no browser, no terminal):
+Agent Monitor runs in its own window — no browser, no terminal. Two ways to get it:
+
+### Option 1 — Download the installer (no Node.js needed)
+
+1. Download **Agent-Monitor-Setup-1.0.0.exe** from the [latest release](https://github.com/prasanth23590/AgentMonitor/releases/latest) (the SHA-256 checksum is in the release notes).
+2. Run it. The installer is unsigned, so Windows SmartScreen will warn the first time: click **More info → Run anyway**.
+3. Choose an install folder, then launch **Agent Monitor** from the Start menu or desktop shortcut.
+
+### Option 2 — Build the installer yourself
 
 ```bash
+git clone https://github.com/prasanth23590/AgentMonitor.git
+cd AgentMonitor
 npm install
 npm run icon   # once: generates assets/icon.ico from assets/icon.svg
 npm run dist   # builds dist-app/Agent Monitor Setup 1.0.0.exe
 ```
 
-Run the installer, then launch **Agent Monitor** from the Start menu. The installer is unsigned, so Windows SmartScreen will warn the first time. Closing the window — or the **⏻ stop** button — quits the app and its built-in server (it listens on a random port on `127.0.0.1` only).
+If the build fails with "Cannot create symbolic link", turn on Windows **Developer Mode** (Settings → For developers) or use an Administrator terminal, then retry. Run the installer as in Option 1.
+
+### Using the app
+
+Closing the window — or the **⏻ stop** button — quits the app and its built-in server (it listens on a random port on `127.0.0.1` only).
 
 Development: `npm run dev` + `npm run app` opens the desktop window against the Vite dev server; `npm start` builds and opens the production window without installing. `npm test` runs the test suite.
 
@@ -171,6 +185,10 @@ Prerequisites: Node.js on PATH, `curl` available (built-in on Windows 10+).
 ## Stopping the server
 
 In the desktop app, **⏻ stop** (or closing the window) quits the whole app. In dev mode, click the **⏻ stop** button in the top-right of the shell bar. This terminates both the Express backend and the Vite dev server — the app is fully shut down. To use Agent Monitor again, re-launch it with `npm run dev` (or via the macOS app / Windows bat script).
+
+## License
+
+[MIT](LICENSE) © 2026 prasanth23590
 
 ## Tech stack
 
